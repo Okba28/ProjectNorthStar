@@ -20,9 +20,10 @@ public TextMeshProUGUI AtomicRadius;
 public TextMeshProUGUI Discoverer;
 public TextMeshProUGUI Year;
 public Element element;
+public SceneVariables sv;
     void Start()
     {
-        
+        element =ElementFactory.GetElementByName("H");
     }
 
     // Update is called once per frame
@@ -30,24 +31,32 @@ public Element element;
     {
         if(element == null)
         {
+            //fall to default selection
+            element =ElementFactory.GetElementByName("H");
             return;
         }
         else {
-           UpdateInfo( element) ;
+           UpdateInfo(sv.SlectedElement);
         }
     }
     void UpdateInfo(Element element)
     {
-        ElementName.text = element.ElementName;
+        if(element!=null)
+        {
+         ElementName.text = element.ElementName;
         Symbol.text= element.Symbol;
-        NumberofNeutrons.text = "N:" +element.NumberofNeutrons;
-        NumberofProtons.text = "P:"+ element.NumberofProtons;
-        Phase.text= "Phase:"+element.Phase;
-        Type.text ="Type:"+ element.Type;
-        AtomicRadius.text = "Atomic Radius:" + element.AtomicRadius;
-        Discoverer.text = "Discoverer:" +element.Discoverer;
+        NumberofNeutrons.text = "N: " +element.NumberofNeutrons;
+        NumberofProtons.text = "P: "+ element.NumberofProtons;
+        NumberofElectrons.text = "E: "+element.NumberofElectrons;
+        Phase.text= "Phase: "+element.Phase;
+        Type.text ="Type: "+ element.Type;
+        AtomicRadius.text = "Atomic Radius: " + element.AtomicRadius;
+        Discoverer.text = "Discoverer: " +element.Discoverer;
         Year.text = element.Year;
 
+        }
+        
       
     }
+    
 }

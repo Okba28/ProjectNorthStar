@@ -7,10 +7,13 @@ public class UIPopulater : MonoBehaviour
 {
     // Start is called before the first frame update
      List<Button> elementBtn = new List<Button>();
-     public UIEventsListener listener;
+     public SceneVariables sv;
+ 
     void Start()
     {
-        elementBtn = GetComponentsInChildren<Button>().ToList();;
+        elementBtn = GetComponentsInChildren<Button>().ToList();
+        sv.BtnList.Clear();
+        sv.BtnList.AddRange(elementBtn);
       
         print (""+elementBtn.Count);
         Populate ();
@@ -36,11 +39,10 @@ public class UIPopulater : MonoBehaviour
             Element e = ElementFactory.GetElementByAtomic(count);
             text.text = e.Symbol;
             elements.Add(e);
-            Debug.Log(text.text);
+//            Debug.Log(text.text);
             count++;
         }
         //setDictionary in the listener 
-        listener.initDictionary(elementBtn,elements);
-
+       
     }
 }
