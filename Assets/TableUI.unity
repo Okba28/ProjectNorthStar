@@ -4973,12 +4973,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1352114737}
-        m_MethodName: 
+      - m_Target: {fileID: 1352114744}
+        m_MethodName: SpawnElectrones
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7655,6 +7655,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790907684}
   m_CullTransparentMesh: 0
+--- !u!4 &797617433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6016020292097417821, guid: f614188af7bae7f438320698860dbea0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1770267625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &805449630
 GameObject:
   m_ObjectHideFlags: 0
@@ -12394,6 +12400,7 @@ GameObject:
   - component: {fileID: 1352114738}
   - component: {fileID: 1352114743}
   - component: {fileID: 1352114742}
+  - component: {fileID: 1352114744}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -12436,7 +12443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4095589a888d0a6438e83d4e5cf8b539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 196668899}
+  panel: {fileID: 1695769220}
   sv: {fileID: 11400000, guid: 8ab09dcf1cd0f6a43ada757ec1d02622, type: 2}
 --- !u!114 &1352114740
 MonoBehaviour:
@@ -12477,7 +12484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sv: {fileID: 11400000, guid: 8ab09dcf1cd0f6a43ada757ec1d02622, type: 2}
-  highlightColor: {r: 0.64684534, g: 1, b: 0, a: 0}
+  highlightColor: {r: 0.64684534, g: 1, b: 0, a: 0.85490197}
 --- !u!114 &1352114743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12490,6 +12497,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d9ea3a0eb6a994fa8665f6882c966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sv: {fileID: 11400000, guid: 8ab09dcf1cd0f6a43ada757ec1d02622, type: 2}
+--- !u!114 &1352114744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352114737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803972c42c0c02845b37d5beb39c0621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 5774580785025144897, guid: be141f0fdb8f7bb40b3271d296340ace,
+    type: 3}
+  shellNumber: 0
+  trn: {fileID: 797617433}
+  elecN: 2
   sv: {fileID: 11400000, guid: 8ab09dcf1cd0f6a43ada757ec1d02622, type: 2}
 --- !u!1 &1368712499
 GameObject:
@@ -18080,12 +18105,12 @@ PrefabInstance:
     - target: {fileID: 6016020292097417821, guid: f614188af7bae7f438320698860dbea0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 6016020292097417821, guid: f614188af7bae7f438320698860dbea0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.49
       objectReference: {fileID: 0}
     - target: {fileID: 6016020292097417821, guid: f614188af7bae7f438320698860dbea0,
         type: 3}

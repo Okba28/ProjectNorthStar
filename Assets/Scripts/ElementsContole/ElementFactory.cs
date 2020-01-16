@@ -66,6 +66,7 @@ public class ElementFactory
         
         else 
         {
+            Debug.Log("your key"+elementsAtomic+"not found"+ elementsDictionaryByAtomic.Count);
             return null;
         }
     }

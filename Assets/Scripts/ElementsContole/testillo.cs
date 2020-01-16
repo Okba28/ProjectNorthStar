@@ -6,13 +6,18 @@ public class testillo : MonoBehaviour
 {
     // Start is called before the first frame update
     List<GameObject> listOfSpawnedElectrons = new List<GameObject>();
-    public GameObject gameObject;
-    public int shellNumber; 
-    
-    public Transform trn ;
-    public int elecN = 2;
+    [SerializeField]
+    GameObject gameObject;
+    [SerializeField]
+   int shellNumber; 
+    [SerializeField]
+    Transform trn ;
+    [SerializeField]   
+     int elecN = 2;
+    [SerializeField]    
     Element element ; 
-    public SceneVariables sv;
+    [SerializeField]   
+    SceneVariables sv;
 
     void Start()
     {
@@ -59,22 +64,22 @@ public class testillo : MonoBehaviour
     if(n>elecN-current)
     {
          radius++;
-        instantiateInCircle(gameObject, trn.position, elecN-current,radius);
+        instantiateInCircle(gameObject, trn.localPosition, elecN-current,radius);
         return;
     }
     else {
        radius++;  
-     instantiateInCircle(gameObject, trn.position, n,radius);
+     instantiateInCircle(gameObject, trn.localPosition, n,radius);
      //make sure i don't get over the budget ( how many electrons we have )
      current = current +n ;
    
-
+ 
     }
      
     if(i-shellNumber ==-1)
     {
          radius++;
-        instantiateInCircle(gameObject, trn.position, elecN-current,radius);
+        instantiateInCircle(gameObject, trn.localPosition, elecN-current,radius);
         return;
     }
      
@@ -88,10 +93,11 @@ public class testillo : MonoBehaviour
      {
          
          float angle = i * Mathf.PI * 2f / howMany;
-         Vector3 newPos = transform.position + (new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius));
+         Vector3 newPos = transform.position + (new Vector3(Mathf.Cos(angle) * radius+location.x, location.y, Mathf.Sin(angle) * radius+location.z));
          GameObject go = Instantiate(obj, newPos, Quaternion.Euler(0, 0, 0));
          listOfSpawnedElectrons.Add(go);
      }
  }
- 
+  //TODO spawn Protons/Neutrons
+  //
 }

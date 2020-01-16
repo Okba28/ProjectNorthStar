@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class ShowController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public SceneVariables sv;
-     public Color highlightColor;
+    [SerializeField] 
+     SceneVariables sv;
+    [SerializeField]    
+      Color highlightColor;
 
     void Start()
     {

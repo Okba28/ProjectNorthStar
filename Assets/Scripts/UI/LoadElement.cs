@@ -47,10 +47,11 @@ public class LoadElement : MonoBehaviour
         {
            // Debug.Log(q.ElementName + "," + q.Symbol+ "," +q.NumberofNeutrons+ "," +q.NumberofProtons+","+q.NumberofShells);
         }
+        ElementFactory.InitFactory(elements);
 	}
      void Start()
         {
-            ElementFactory.InitFactory(elements);
+            
         }
 
     // Update is called once per frame
