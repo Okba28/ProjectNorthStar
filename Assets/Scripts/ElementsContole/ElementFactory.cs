@@ -41,7 +41,7 @@ public class ElementFactory
              }
           
         }
-        Debug.Log ("Factory int "+ elementsDictionaryByAtomic.Count);
+        Debug.Log ("Factory init "+ elementsDictionaryByAtomic.Count);
     }
     public static Element GetElementByName (string elementsName)
     {

@@ -7,18 +7,21 @@ public class UIPopulater : MonoBehaviour
 {
     // Start is called before the first frame update
      List<Button> elementBtn = new List<Button>();
-     public SceneVariables sv;
+     [SerializeField]
+     private GameObject panel ;
+     [SerializeField]
+     private SceneVariables sv;
  
     void Start()
     {
-        elementBtn = GetComponentsInChildren<Button>().ToList();
+        elementBtn = panel.GetComponentsInChildren<Button>().ToList();
         sv.BtnList.Clear();
         sv.BtnList.AddRange(elementBtn);
       
-        print (""+elementBtn.Count);
+        print ("populate with "+sv.BtnList.Count);
         Populate ();
-        //null reference fix
-        
+      
+         //print ("populate with "+sv.BtnList.Count);
     }
 
     // Update is called once per frame
@@ -35,11 +38,15 @@ public class UIPopulater : MonoBehaviour
         {
             //chenge text 
             Text text = btn.GetComponentInChildren<Text>();
-            
+            print(count);
             Element e = ElementFactory.GetElementByAtomic(count);
+            if(e== null)
+            {
+                print("nulrefrenceexeption e");
+            }
             text.text = e.Symbol;
             elements.Add(e);
-//            Debug.Log(text.text);
+            
             count++;
         }
         //setDictionary in the listener 

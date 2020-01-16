@@ -48,29 +48,32 @@ public class testillo : MonoBehaviour
     
     float radius = 0;
     int current = 0;  
-    
+    shellNumber = sv.SlectedElement.NumberofShells;
     for (int i = 0; i < shellNumber; i++)
      {
-     radius++;
+    
      Debug.Log(radius);
      int n = i*2;
      
     //n not overbudget if i*2 greater than elecN-current , don't put n but put the ressult 
     if(n>elecN-current)
     {
+         radius++;
         instantiateInCircle(gameObject, trn.position, elecN-current,radius);
         return;
     }
     else {
-        
+       radius++;  
      instantiateInCircle(gameObject, trn.position, n,radius);
      //make sure i don't get over the budget ( how many electrons we have )
      current = current +n ;
    
 
     }
+     
     if(i-shellNumber ==-1)
     {
+         radius++;
         instantiateInCircle(gameObject, trn.position, elecN-current,radius);
         return;
     }
