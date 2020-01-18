@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 public class UIPopulater : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -11,27 +12,29 @@ public class UIPopulater : MonoBehaviour
      private GameObject panel ;
      [SerializeField]
      private SceneVariables sv;
+    public TextMeshProUGUI  debug;
  
-    void Start()
+  
+  
+    void Start()  
+    {
+        
+     
+        PopulateUI();
+        debug.text="start populating ";
+    }
+  
+      
+ 
+   private void PopulateUI ()
     {
         elementBtn = panel.GetComponentsInChildren<Button>().ToList();
+        if(sv.BtnList.Count!=0)
+        {
         sv.BtnList.Clear();
         sv.BtnList.AddRange(elementBtn);
       
-        print ("populate with "+sv.BtnList.Count);
-        Populate ();
-      
-         //print ("populate with "+sv.BtnList.Count);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void Populate ()
-    {
+        debug.text= sv.BtnList.Count.ToString();
        int  count = 1;
        List<Element> elements = new List<Element>();
         foreach( var btn in elementBtn)
@@ -42,7 +45,7 @@ public class UIPopulater : MonoBehaviour
             Element e = ElementFactory.GetElementByAtomic(count);
             if(e== null)
             {
-                print("nulrefrenceexeption e");
+                debug.text ="nulrefrenceexeption e";
             }
             text.text = e.Symbol;
             elements.Add(e);
@@ -50,6 +53,12 @@ public class UIPopulater : MonoBehaviour
             count++;
         }
         //setDictionary in the listener 
+        debug.text="done populating ";
+        }
+        else{
+             debug.text="sv.BtnList 00";
+        }
+        
        
     }
 }

@@ -10,12 +10,13 @@ public class OrbitElectrone : MonoBehaviour
     // Update is called once per frame
     void OnEnable()
     {
-        target = GameObject.FindWithTag("root").transform;
+        
         //send warning if it return null
+         target = GameObject.FindWithTag("root").transform;
     }
     void Update()
     {
-        
+      
        OrbitAroundTarget(target);
         
     }

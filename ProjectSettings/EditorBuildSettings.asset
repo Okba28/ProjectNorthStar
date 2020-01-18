@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/TableUI.unity
+    guid: 82ee26a273ecc0b4293fcfdf0c39f913
+  m_configObjects: {}

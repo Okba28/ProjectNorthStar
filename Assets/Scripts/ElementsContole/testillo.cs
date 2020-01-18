@@ -9,7 +9,7 @@ public class testillo : MonoBehaviour
     [SerializeField]
     GameObject gameObject;
     [SerializeField]
-   int shellNumber; 
+    int shellNumber; 
     [SerializeField]
     Transform trn ;
     [SerializeField]   
@@ -64,12 +64,12 @@ public class testillo : MonoBehaviour
     if(n>elecN-current)
     {
          radius++;
-        instantiateInCircle(gameObject, trn.localPosition, elecN-current,radius);
+        instantiateInCircle(gameObject, trn.position, elecN-current,radius);
         return;
     }
     else {
        radius++;  
-     instantiateInCircle(gameObject, trn.localPosition, n,radius);
+     instantiateInCircle(gameObject, trn.position, n,radius);
      //make sure i don't get over the budget ( how many electrons we have )
      current = current +n ;
    
@@ -79,7 +79,7 @@ public class testillo : MonoBehaviour
     if(i-shellNumber ==-1)
     {
          radius++;
-        instantiateInCircle(gameObject, trn.localPosition, elecN-current,radius);
+        instantiateInCircle(gameObject, trn.position, elecN-current,radius);
         return;
     }
      
@@ -93,8 +93,8 @@ public class testillo : MonoBehaviour
      {
          
          float angle = i * Mathf.PI * 2f / howMany;
-         Vector3 newPos = transform.position + (new Vector3(Mathf.Cos(angle) * radius+location.x, location.y, Mathf.Sin(angle) * radius+location.z));
-         GameObject go = Instantiate(obj, newPos, Quaternion.Euler(0, 0, 0));
+         Vector3 newPos = transform.position + (new Vector3((Mathf.Cos(angle) * radius)+location.x, location.y, (Mathf.Sin(angle) * radius)+location.z));
+         GameObject go = Instantiate(obj, newPos, Quaternion.Euler(0, 0, 0),trn);
          listOfSpawnedElectrons.Add(go);
      }
  }

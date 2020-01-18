@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LoadElement : MonoBehaviour
 {
     List<Element> elements = new List<Element>();
-
+   
+    [SerializeField]
+    TextAsset questdata;
 	// Use this for initialization
 	void Awake () 
     {
-        TextAsset questdata = Resources.Load<TextAsset>("table");
+        
 
         string[] data = questdata.text.Split(new char[] { '\n' });
 
@@ -48,6 +51,7 @@ public class LoadElement : MonoBehaviour
            // Debug.Log(q.ElementName + "," + q.Symbol+ "," +q.NumberofNeutrons+ "," +q.NumberofProtons+","+q.NumberofShells);
         }
         ElementFactory.InitFactory(elements);
+        //debug.text="elemnts loaded from Csv with"+elements.Count;
 	}
      void Start()
         {
