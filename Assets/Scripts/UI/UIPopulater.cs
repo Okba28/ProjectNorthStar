@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 using TMPro;
 public class UIPopulater : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class UIPopulater : MonoBehaviour
      private GameObject panel ;
      [SerializeField]
      private SceneVariables sv;
-    public TextMeshProUGUI  debug;
+  //  public TextMeshProUGUI  debug;
  
   
   
@@ -20,32 +21,45 @@ public class UIPopulater : MonoBehaviour
     {
         
      
-        PopulateUI();
-        debug.text="start populating ";
+    //
+          PopulateUI();
+     
+   //
+        
+       
     }
   
       
  
    private void PopulateUI ()
     {
+       // debug.text= "first test  "+elementBtn.Count.ToString();
         elementBtn = panel.GetComponentsInChildren<Button>().ToList();
-        if(sv.BtnList.Count!=0)
-        {
-        sv.BtnList.Clear();
-        sv.BtnList.AddRange(elementBtn);
-      
-        debug.text= sv.BtnList.Count.ToString();
+
+       // debug.text= "2nd test  "+elementBtn.Count.ToString();
+        if(sv.BtnList == null)
+            {
+               // debug.text ="nulrefrenceexeption sv.BtnList";
+            }
+            else {
+             sv.BtnList.Clear();
+             sv.BtnList.AddRange(elementBtn);
+          //   debug.text= sv.BtnList.Count.ToString();
+            }
+       
+        
        int  count = 1;
        List<Element> elements = new List<Element>();
         foreach( var btn in elementBtn)
         {
             //chenge text 
             Text text = btn.GetComponentInChildren<Text>();
-            print(count);
+           // debug.text= btn.ToString();
+            
             Element e = ElementFactory.GetElementByAtomic(count);
             if(e== null)
             {
-                debug.text ="nulrefrenceexeption e";
+               // debug.text ="nulrefrenceexeption e";
             }
             text.text = e.Symbol;
             elements.Add(e);
@@ -53,11 +67,11 @@ public class UIPopulater : MonoBehaviour
             count++;
         }
         //setDictionary in the listener 
-        debug.text="done populating ";
-        }
-        else{
-             debug.text="sv.BtnList 00";
-        }
+    //    debug.text="done populating ";
+       
+      
+           
+      
         
        
     }

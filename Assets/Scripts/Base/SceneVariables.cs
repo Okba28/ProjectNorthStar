@@ -14,7 +14,7 @@ public class SceneVariables : ScriptableObject
 
     public Element SlectedElement { get => slectedElement; set => slectedElement = value; }
     public Button SlectedButton { get => slectedButton; set => slectedButton = value; }
-    public List<Button> BtnList { get; set; }
+    public List<Button> BtnList  { get; set; }
 
     void ResetData()
   {
@@ -24,6 +24,10 @@ public class SceneVariables : ScriptableObject
 
   }
   
+  void Start()
+  {
+      BtnList = new List<Button>();
+  }
   void OnApplicationQuit()
   {
      ResetData(); 

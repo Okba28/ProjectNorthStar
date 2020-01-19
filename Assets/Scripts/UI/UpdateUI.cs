@@ -19,25 +19,19 @@ public TextMeshProUGUI Type;
 public TextMeshProUGUI AtomicRadius;
 public TextMeshProUGUI Discoverer;
 public TextMeshProUGUI Year;
-public Element element;
+
 public SceneVariables sv;
     void Start()
     {
-        element =ElementFactory.GetElementByName("H");
+        Element element =ElementFactory.GetElementByName("H");
+        UpdateInfo(element);
+        sv.SlectedElement =  element;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(element == null)
-        {
-            //fall to default selection
-            element =ElementFactory.GetElementByName("H");
-            return;
-        }
-        else {
            UpdateInfo(sv.SlectedElement);
-        }
     }
     void UpdateInfo(Element element)
     {
