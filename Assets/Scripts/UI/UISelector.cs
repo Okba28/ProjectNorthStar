@@ -11,8 +11,12 @@ public class UISelector : MonoBehaviour
     public SceneVariables sv ;
     public TextMeshProUGUI  debug;
     private List<Button> listBtn = new List<Button>();
-    void Start()
+    public UpdateUI updater ;
+    void Awake()
     {
+        Element element =ElementFactory.GetElementByName("H");
+        updater.UpdateInfo(element);
+        sv.SetSelectedElement(element);
         
     }
 
@@ -22,7 +26,8 @@ public class UISelector : MonoBehaviour
         
     }
 
-    int counter =0 ;
+    int counter = 0 ;
+   
     public void SelectForward()
     {
         debug.text = "  SelectForward ";
@@ -39,8 +44,19 @@ public class UISelector : MonoBehaviour
             return;
         }
         else {
-             sv.SlectedButton = listBtn[counter];
-             debug.text = ""+sv.SlectedButton.GetComponentInChildren<Text>().text;
+           Element e = GetElement (listBtn[counter]);
+           if(e==null)
+           {
+                  print("e is null");
+           }
+           else {
+                updater.UpdateInfo(e);
+                
+
+               sv.SetSelectedElement(e);
+
+           }
+          
 
         }
         
@@ -57,11 +73,13 @@ public class UISelector : MonoBehaviour
         if(counter<=0 || counter > listBtn.Count-1)
         {
             counter =0;
-            return;
+           
         }
         else 
         {
-            sv.SlectedButton = listBtn[counter];
+            Element e = GetElement (listBtn[counter]);
+            updater.UpdateInfo(e);
+            //sv.SetSelectedElement(e);
         }
        
            
@@ -71,5 +89,15 @@ public class UISelector : MonoBehaviour
        listBtn.Clear();
        listBtn.AddRange(sv.BtnList);
         debug.text = "  init list "+listBtn.Count;
+    }
+    Element GetElement (Button btn)
+    {
+        String name = btn.GetComponentInChildren<Text>().text;
+        Element e = ElementFactory.GetElementByName(name);
+        return e;
+    }
+    void MoveSelectio(int counter)
+    {
+      
     }
 }

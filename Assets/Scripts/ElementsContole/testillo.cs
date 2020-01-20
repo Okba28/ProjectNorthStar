@@ -25,14 +25,12 @@ public class testillo : MonoBehaviour
         //spawn the electrone +1 unity respectevly 
        // instantiateInCircle(gameObject, trn.position, elecN,3f);
       
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        element = sv.SlectedElement;
-        
+        element = sv.SlectedElement; 
     }
    public void SpawnElectrones()
     {
@@ -45,9 +43,6 @@ public class testillo : MonoBehaviour
             }
             listOfSpawnedElectrons.Clear();
         }
-    
-    
-   
     
     elecN = element.NumberofElectrons;
     
@@ -82,8 +77,7 @@ public class testillo : MonoBehaviour
         instantiateInCircle(gameObject, trn.position, elecN-current,radius);
         return;
     }
-     
-     
+      
     }
   
   }

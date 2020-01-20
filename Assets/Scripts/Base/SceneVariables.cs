@@ -21,7 +21,6 @@ public class SceneVariables : ScriptableObject
     slectedElement = null;
     Button slectedButton = null;
     BtnList.Clear();
-
   }
   
   void Start()
@@ -31,5 +30,9 @@ public class SceneVariables : ScriptableObject
   void OnApplicationQuit()
   {
      ResetData(); 
+  }
+  public void SetSelectedElement(Element element)
+  {
+    slectedElement = element;
   }
 }

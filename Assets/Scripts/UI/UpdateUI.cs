@@ -23,22 +23,22 @@ public TextMeshProUGUI Year;
 public SceneVariables sv;
     void Start()
     {
-        Element element =ElementFactory.GetElementByName("H");
-        UpdateInfo(element);
-        sv.SlectedElement =  element;
+       //set hydro as default
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-           UpdateInfo(sv.SlectedElement);
+          
     }
-    void UpdateInfo(Element element)
+    public void UpdateInfo(Element element)
     {
         if(element!=null)
         {
-         ElementName.text = element.ElementName;
-        Symbol.text= element.Symbol;
+       // sv.SlectedElement =element;
+        ElementName.text = element.ElementName;
+        Symbol.text= element.Symbol; 
         NumberofNeutrons.text = "N: " +element.NumberofNeutrons;
         NumberofProtons.text = "P: "+ element.NumberofProtons;
         NumberofElectrons.text = "E: "+element.NumberofElectrons;
